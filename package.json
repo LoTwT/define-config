@@ -1,0 +1,76 @@
+{
+  "name": "define-config",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.5.1",
+  "description": "define-config",
+  "author": "LoTwT <l709937065@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/LoTwT/define-config#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoTwT/define-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LoTwT/define-config/issues"
+  },
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "watch": "tsup --watch",
+    "build": "tsup",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prettier": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "prepublishOnly": "pnpm build",
+    "release": "bumpp && npm publish",
+    "prepare": "simple-git-hooks",
+    "up": "taze latest -I"
+  },
+  "devDependencies": {
+    "@ayingott/eslint-config": "^0.2.1",
+    "@types/node": "^20.2.3",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.41.0",
+    "lint-staged": "^13.2.2",
+    "pnpm": "^8.5.1",
+    "prettier": "^2.8.8",
+    "simple-git-hooks": "^2.8.1",
+    "taze": "^0.10.1",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4",
+    "unplugin-auto-import": "^0.16.2",
+    "vitest": "^0.31.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  },
+  "eslintConfig": {
+    "extends": "@ayingott/eslint-config"
+  }
+}
