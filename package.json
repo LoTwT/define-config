@@ -49,8 +49,13 @@
     "prepare": "simple-git-hooks",
     "up": "taze latest -I"
   },
+  "dependencies": {
+    "fs-extra": "^11.1.1"
+  },
   "devDependencies": {
-    "@ayingott/eslint-config": "^0.2.1",
+    "@ayingott/eslint-config": "^0.2.2",
+    "@ayingott/sucrose": "^0.0.3",
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^20.2.3",
     "bumpp": "^9.1.0",
     "eslint": "^8.41.0",
