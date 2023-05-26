@@ -1,8 +1,9 @@
 import { resolve } from "node:path"
+import { normalizePath } from "@ayingott/sucrose"
 import { getConfigFilePath, getUserConfig } from "@/config"
 
 describe("define-config", () => {
-  const fixturesPath = resolve(__dirname, "./fixtures")
+  const fixturesPath = normalizePath(resolve(__dirname, "./fixtures"))
   const substitutedPath = "SUBSTITUTED_PATH"
 
   it("getConfigFilePath", () => {
