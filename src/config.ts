@@ -1,6 +1,7 @@
 import { resolve } from "node:path"
 import fse from "fs-extra"
 import type { Nullable } from "@ayingott/sucrose"
+import { normalizePath } from "@ayingott/sucrose"
 import type { Config, UserConfigExport } from "./types"
 
 export const getConfigFilePath = (name: string, dir?: string) => {
@@ -8,7 +9,9 @@ export const getConfigFilePath = (name: string, dir?: string) => {
   const configDirPath = dir || process.cwd()
 
   const configFilePath = configFilesExts
-    .map((ext) => resolve(configDirPath, `${name}.config.${ext}`))
+    .map((ext) =>
+      normalizePath(resolve(configDirPath, `${name}.config.${ext}`)),
+    )
     .find(fse.pathExistsSync)
   if (configFilePath) return configFilePath
   else {
