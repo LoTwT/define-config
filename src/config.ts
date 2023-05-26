@@ -6,7 +6,7 @@ import type { Config, UserConfigExport } from "./types"
 
 export const getConfigFilePath = (name: string, dir?: string) => {
   const configFilesExts = ["js", "ts"]
-  const configDirPath = dir || process.cwd()
+  const configDirPath = normalizePath(dir || process.cwd())
 
   const configFilePath = configFilesExts
     .map((ext) =>
